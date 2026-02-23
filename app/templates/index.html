@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Heart Disease Risk Studio</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <section class="app-shell__left">
+    <header class="app-header">
+      <div class="app-title">
+        <span>Predictive Cardiology</span>
+        <h1>Heart Disease Risk Studio</h1>
+      </div>
+      <div class="badge">Logistic Regression · ROC‑AUC Optimized</div>
+    </header>
+
+    <div class="hero-copy">
+      <h2>Clinical‑grade insight, instantly</h2>
+      <p>
+        Provide key cardiovascular measurements and this model estimates the probability of heart disease,
+        helping you reason about patient risk in a structured, data‑driven way.
+      </p>
+    </div>
+
+    <div class="metrics-strip">
+      <article class="metric-card">
+        <div class="metric-card__label">Model Family</div>
+        <div class="metric-card__value">Logistic Regression</div>
+        <div class="metric-card__sub">Standardized features · Grid Search CV</div>
+      </article>
+      <article class="metric-card">
+        <div class="metric-card__label">Risk Buckets</div>
+        <div class="metric-card__value">3 Levels</div>
+        <div class="metric-card__sub">Low · Moderate · High</div>
+      </article>
+    </div>
+
+    <ul class="legend-list">
+      <li class="legend-pill">
+        <span class="legend-dot legend-dot--low"></span>
+        Low risk &lt; 30%
+      </li>
+      <li class="legend-pill">
+        <span class="legend-dot legend-dot--moderate"></span>
+        Moderate risk 30–70%
+      </li>
+      <li class="legend-pill">
+        <span class="legend-dot legend-dot--high"></span>
+        High risk &gt; 70%
+      </li>
+    </ul>
+  </section>
+
+  <section class="app-shell__right">
+    <h2 class="form-section-title">Patient Profile</h2>
+    <form id="form" novalidate></form>
+
+    <div class="action-row">
+      <button id="analyze-button" type="button" class="primary-button">
+        <span class="icon">▶</span>
+        <span>Analyze Risk</span>
+      </button>
+      <p class="secondary-text">
+        All values are treated as numeric features. No personally identifiable information is stored.
+      </p>
+    </div>
+
+    <div id="error-banner" class="error-banner"></div>
+    <div id="result" class="result-card"></div>
+  </section>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

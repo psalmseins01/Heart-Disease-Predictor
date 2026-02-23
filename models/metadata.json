@@ -1,0 +1,9 @@
+{
+    "trained_at": "2026-02-23 05:57:58.288021",
+    "roc_auc": 0.826829268292683,
+    "best_params": {
+        "classifier__C": 0.01,
+        "classifier__penalty": "l2",
+        "classifier__solver": "lbfgs"
+    }
+}

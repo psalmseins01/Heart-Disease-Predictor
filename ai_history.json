@@ -1,0 +1,110 @@
+[
+  {
+    "order": 1,
+    "action": "analysis",
+    "description": "Scanned repository structure and identified core project modules and data paths.",
+    "files": [
+      "src/config.py",
+      "src/pipeline.py",
+      "src/evaluate.py",
+      "src/features.py",
+      "src/train.py",
+      "src/predict.py",
+      "app/main.py",
+      "app/templates/index.html",
+      "app/static/script.js",
+      "heart-disease-advanced/data/heart-disease.csv",
+      "requirements.txt",
+      "Dockerfile"
+    ]
+  },
+  {
+    "order": 2,
+    "action": "quality_check",
+    "description": "Ran Python compilation check for src and app packages to ensure syntax correctness.",
+    "commands": [
+      "python -m compileall src app"
+    ]
+  },
+  {
+    "order": 3,
+    "action": "config_creation",
+    "description": "Created centralized configuration module defining base paths, data path, model paths and training hyperparameters.",
+    "files_modified": [
+      "src/config.py"
+    ]
+  },
+  {
+    "order": 4,
+    "action": "features_module",
+    "description": "Implemented data loading and feature/target splitting, including optional conversion of sex from string labels to numeric encoding.",
+    "files_modified": [
+      "src/features.py"
+    ]
+  },
+  {
+    "order": 5,
+    "action": "pipeline_refactor",
+    "description": "Refactored training pipeline to use configuration values, feature helpers, and GridSearchCV for logistic regression hyperparameter tuning with ROC-AUC scoring.",
+    "files_modified": [
+      "src/pipeline.py"
+    ]
+  },
+  {
+    "order": 6,
+    "action": "evaluation_script",
+    "description": "Implemented evaluation script to compute ROC-AUC and classification report on the full dataset and print stored metadata.",
+    "files_modified": [
+      "src/evaluate.py"
+    ]
+  },
+  {
+    "order": 7,
+    "action": "train_entrypoint",
+    "description": "Added command-line entry point that calls the training pipeline.",
+    "files_modified": [
+      "src/train.py"
+    ]
+  },
+  {
+    "order": 8,
+    "action": "predict_cli",
+    "description": "Implemented CLI prediction script that loads the trained model and predicts a single patient outcome from command-line arguments.",
+    "files_modified": [
+      "src/predict.py"
+    ]
+  },
+  {
+    "order": 9,
+    "action": "api_refactor",
+    "description": "Updated FastAPI app to serve the HTML UI, mount static files, cache model loading, and improve error handling when the model file is missing.",
+    "files_modified": [
+      "app/main.py"
+    ]
+  },
+  {
+    "order": 10,
+    "action": "ui_adjustment",
+    "description": "Adjusted Analyze button in the HTML template to avoid accidental form submission and rely exclusively on JavaScript for API calls.",
+    "files_modified": [
+      "app/templates/index.html"
+    ]
+  },
+  {
+    "order": 11,
+    "action": "training_attempt",
+    "description": "Attempted to run training entry point; run failed due to missing third-party dependency joblib, indicating environment setup is required (pip install -r requirements.txt).",
+    "commands": [
+      "python src/train.py"
+    ]
+  },
+  {
+    "order": 12,
+    "action": "workflow_documentation",
+    "description": "Created markdown document summarizing end-to-end workflows for environment setup, training, evaluation, prediction, API usage, and Docker.",
+    "files_modified": [
+      "WORKFLOW.md"
+    ]
+  }
+]
+
